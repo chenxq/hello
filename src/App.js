@@ -5,8 +5,22 @@ import Square from './Square';
 
 const array = [1, 2, 3];
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        color: 'red',
+    };
+  }
+
+  colorChange = () => {
+    let color = this.state.color === 'red' ? 'green' : 'red';
+    this.setState({
+      color: color
+    })
+  }
+
   renderSquare(i) {
-    return <Square value={i}/>;
+    return <Square value={i} color={this.state.color}/>;
   }
   
   render() {
@@ -15,6 +29,9 @@ class App extends React.Component {
         <div>
           {array.map(item => this.renderSquare(item))}
         </div>
+        <button onClick={this.colorChange}>
+          Change Color
+        </button>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
