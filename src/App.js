@@ -3,10 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import Square from './Square';
 
-const array = [1, 2, 3];
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
         color: 'red',
         click: false
@@ -20,7 +19,8 @@ class App extends React.Component {
     callBackParent={this.onSquareClick}/>;
   }
 
-  onSquareClick = (isClick) => {
+  onSquareClick = () => {
+    var isClick = !this.state.click;
     this.setState({click: isClick}, () => {
       console.log('===>set state done')})
     this.colorChange();
@@ -34,6 +34,7 @@ class App extends React.Component {
   }
   
   render() {
+    const array = [1, 2, 3];
     return (
       <div className="App">
         <div>

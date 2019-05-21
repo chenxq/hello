@@ -9,11 +9,11 @@ class Square extends React.Component {
     }
 
     handleClick = () => {
-        var isClick = !this.state.click;
-        this.setState({
-            click: isClick
-        });
-        this.props.callBackParent(this.state.click);
+        // var isClick = !this.state.click;
+        // this.setState({
+        //     click: isClick
+        // });
+        this.props.callBackParent();
       }
 
     render() {
