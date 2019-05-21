@@ -5,8 +5,32 @@ import Square from './Square';
 
 const array = [1, 2, 3];
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        color: 'red',
+        click: false
+    };
+  }
+
   renderSquare(i) {
-    return <Square value={i}/>;
+    return <Square 
+    value={i} 
+    color={this.state.color}
+    callBackParent={this.onSquareClick}/>;
+  }
+
+  onSquareClick = (isClick) => {
+    this.setState({click: isClick}, () => {
+      console.log('===>set state done')})
+    this.colorChange();
+  }
+
+  colorChange = () => {
+    let color = this.state.color === 'red' ? 'blue' : 'red';
+    this.setState({
+      color: color
+    })
   }
   
   render() {
