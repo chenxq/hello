@@ -2,6 +2,8 @@
 import { GET_USER } from '../actions/getUser';
 import axios from 'axios';
 // import { combineReducers } from 'redux';
+axios.defaults.responseType='json'; 
+axios.defaults.headers = {'Content-Type': 'json'};
 
 const initialState = {
     // color: 'red',
@@ -16,15 +18,9 @@ export default function getUser(state = initialState, action) {
         //         color: state.color === 'red' ? 'yellow' : 'red'
         //     };
         case GET_USER:
-            return (dispatch) => {
-                axios.get('https://reading-club-backend.herokuapp.com/users')
-                .then(res => {
-                    // alert('ok');
-                    const data = res.data;
-                    alert(data);
-                    dispatch(action);
-                }).catch(error=>{})
-            };
+            return {
+                message: state.message
+            }
         default:
             return state;
     }

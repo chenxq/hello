@@ -16,7 +16,7 @@ export function getUser() {
                 // alert('ok');
                 // const data = res.data;
                 // console.log('------>', typeof data);
-                var str = JSON.stringify(res);
+                var str = JSON.stringify(res.data.message);
                 console.log('------>', str);
                 alert(str);
                 dispatch(get());
